@@ -22,6 +22,7 @@ container.append(cat)
 container.append(elephant)
 container.append(lion)
 
+// function
 
 function dogdisplay(){
     hideAllImages();
