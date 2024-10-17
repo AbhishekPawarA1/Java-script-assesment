@@ -1,5 +1,5 @@
 
-    question 1
+    // question 1
 
 // Using custom methods
 Array.prototype.customeSlice = function(start,end){
@@ -12,12 +12,12 @@ Array.prototype.customeSlice = function(start,end){
 const arr = [1, 2, 3, 4, 5];
 console.log(arr.customeSlice(1, 3)); // Output: [2, 3]
 
-      question 2
+    //   question 2
 
  const arr = [1, 2, 3, 4, 5];   
 console.log(arr.customSplice(2, 0, 6)); // Output: [1, 2, 6, 3, 4, 5]
 
-      question 3
+    //   question 3
 
 Array.prototype.customPush = function(...elements) {
     for (let element of elements) {
@@ -35,7 +35,7 @@ console.log(arr); // Output: [1, 2, 3, 4, 5, 6, 7]
 
 
      
-         question 4
+        //  question 4
 
 Array.prototype.customPop = function() {
     
@@ -49,7 +49,7 @@ console.log(arr);
 
 // // Using custom higher-order functions
 
-         question 5
+        //  question 5
 
 Array.prototype.customMap = function(callback) {
     let result = [];
@@ -61,7 +61,8 @@ Array.prototype.customMap = function(callback) {
 const arr = [1, 2, 3, 4, 5];  
 console.log(arr.customMap(x => x * 2)); // Output: [2, 4, 6, 8, 10]
 
-        question 6
+
+        // question 6
 
 Array.prototype.customFilter = function(callback) {
     const result = [];
@@ -76,7 +77,8 @@ Array.prototype.customFilter = function(callback) {
 const arr = [1, 2, 3, 4, 5];
 console.log(arr.customFilter(x => x % 2 === 0)); // Output: [2, 4]
 
-          question 7
+
+        //   question 7
 
 Array.prototype.customReduce = function(callback, initialValue) {
     let accumulator = initialValue;
