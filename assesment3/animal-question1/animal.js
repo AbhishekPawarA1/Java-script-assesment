@@ -28,6 +28,7 @@ function dogdisplay(){
     hideAllImages();
     dog.style.display="block";
     dog.style.width="90%"
+
     dog.style.marginTop="30px";
     
     

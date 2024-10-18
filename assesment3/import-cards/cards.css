@@ -1,0 +1,34 @@
+/* Background styles */
+body {
+    background-image: url('https://i.pinimg.com/originals/b2/fb/21/b2fb21f206c56acc2007ed7e587d9770.jpg');
+    background-position: center;
+}
+
+#user-cards-container {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+#card {
+   
+    /* From https://css.glass */
+    border-radius: 14px;
+    background: #b57373;
+    box-shadow:  28px 28px 55px #ae6e6e,
+                 -28px -28px 55px #bc7878;
+    
+    transition: transform ease-in-out;
+}
+#card:hover {
+    transform: scale(1.03) ;
+}
+h2 {
+    text-align: center;
+    color: black;
+    font-weight: 500;
+}
+#name {
+    text-align: center;
+    color: black;
+    font-weight: 900;
+}
