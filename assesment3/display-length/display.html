@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Length</title>
+    <style>
+        /* #container {
+            width: 100%;
+            height: auto;
+            border: 1px solid black;
+        } */
+        input {
+           width: 100%;
+           box-sizing: border-box;
+        }
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            resize: none; /* Disable manual resizing */
+            overflow-wrap: break-word; /* Wrap text when it exceeds the width */
+            padding: 10px;
+            background-color: rgb(41, 38, 38);
+            color: white;
+        }
+        placeholder {
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <textarea id="text-input" rows="15" placeholder="Type Here"></textarea>
+    </div>
+    <h2 id="length">Length: 0</h2>
+</body>
+</html>
+
+<script>
+    let inputField = document.getElementById("text-input");
+    let lengthDisplay = document.getElementById("length");
+
+    inputField.addEventListener("input", function() {
+        let textLength = inputField.value.length; 
+        lengthDisplay.innerHTML = "Length: " + textLength; 
+    });
+</script>
