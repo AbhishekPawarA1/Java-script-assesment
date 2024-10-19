@@ -81,6 +81,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
             let output=document.querySelector("#output")
             output.innerText="Incorrect PIN!😭 Please try again after some time";
         }
+        
         },2000)
        })
        promise.then((res)=>console.log(res)).catch((err)=>console.log(err))
