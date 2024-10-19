@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <script src="https://kit.fontawesome.com/a1a65dd321.js" crossorigin="anonymous"></script>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        #cards {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 10px;
+        }
+        #img {
+            width: 100%;
+            height: 200px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: black;
+            color: white;
+            border: none;
+        }
+        .product {
+            display: flex;
+            justify-content: space-between;
+        }
+        .fa-product-hunt {
+            font-size: 40px;
+            color: black;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="product">
+        <h2>Your Cart</h2>
+        <h2><a href="./index.html"><i class="fa-brands fa-product-hunt"></i></a></h2>
+    </div>
+    
+    <div id="container"></div>
+
+    <script>
+        // Retrieve cart items from localStorage
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        let cartContainer = document.getElementById("container");
+
+        // Check if the cart is empty
+        if (cartItems.length === 0) {
+            cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        } else {
+            // Display each item in the cart
+            cartItems.forEach(item => {
+                // Create card div
+                let cards = document.createElement("div");
+                cards.setAttribute("id", "cards");
+
+                // Create image
+                let image = document.createElement("img");
+                image.setAttribute("id", "img");
+                image.src = item.image;
+
+                // Create name
+                let name = document.createElement("h2");
+                name.innerText = `Name: ${item.name}`;
+
+                // Create category
+                let category = document.createElement("h3");
+                category.innerText = `Category: ${item.category}`;
+
+                // Create price
+                let price = document.createElement("h3");
+                price.innerText = `Price: $${item.price.toFixed(2)}`;
+
+                // Create description
+                let description = document.createElement("h4");
+                description.innerText = `Description: ${item.description}`;
+                let button = document.createElement("button");
+                button.innerText="Buy"
+
+                // Append elements to card
+                cards.append(image, name, category, price, description,button);
+                cartContainer.appendChild(cards);
+            });
+        }
+    </script>
+</body>
+</html>

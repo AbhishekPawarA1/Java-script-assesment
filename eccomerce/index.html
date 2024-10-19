@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <script src="https://kit.fontawesome.com/a1a65dd321.js" crossorigin="anonymous"></script>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);  
+            gap: 20px;
+        }
+        #cards {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            padding: 10px;
+        }
+        #img {
+            width: 100%;
+            height: 200px;
+        }
+        #button  {
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+        }
+        #button:hover {
+            background-color: black;
+            color: white;
+            border: none;
+        }
+        #display {
+            display: flex;
+            justify-content: space-between;
+        }
+        #clickcart {
+            cursor: pointer;
+        }
+        .fa-cart-arrow-down {
+            font-size: 40px;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="display">
+        <h2>Products</h2>
+        <h2 id="clickcart"><a href="./cards.html"><i class="fa-solid fa-cart-arrow-down"></i></a></h2>
+    </div>
+    
+    <div id="container"></div>
+
+    <script>
+        const ecommerceData = [
+            {
+                id: 1,
+                name: "Wireless Headphones",
+                category: "Electronics",
+                price: 59.99,
+                image: "https://www.bhphotovideo.com/images/images2500x2500/beats_by_dr_dre_mhdm2am_a_studio_wireless_over_ear_headphones_gold_1098356.jpg",
+                description: "High-quality wireless headphones with noise cancellation.",
+                rating: 4.5,
+                stock: 120,
+            },
+            {
+                id: 2,
+                name: "Smartphone",
+                category: "Electronics",
+                price: 699.99,
+                image: "https://th.bing.com/th/id/OIP.SvOHHOHbhazWOPPejadOTgHaEl?rs=1&pid=ImgDetMain",
+                description: "Latest model smartphone with 128GB storage and a great camera.",
+                rating: 4.7,
+                stock: 50,
+            },
+            {
+                id: 3,
+                name: "Running Shoes",
+                category: "Footwear",
+                price: 89.99,
+                image: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1545163738-1544814212-765dfd69-66c6-4362-b548-815b9bbfe43e-1545163708.jpg?crop=1xw:1xh;center,top",
+                description: "Comfortable and lightweight running shoes for all terrains.",
+                rating: 4.8,
+                stock: 80,
+            },
+            {
+                id: 4,
+                name: "Laptop",
+                category: "Electronics",
+                price: 999.99,
+                image: "https://th.bing.com/th/id/OIP.okPHK-lOk_E5nzOZsGx2dwHaFI?rs=1&pid=ImgDetMain",
+                description: "High-performance laptop with the latest processor and graphics.",
+                rating: 4.6,
+                stock: 30,
+            },
+            {
+                id: 5,
+                name: "Coffee Maker",
+                category: "Home Appliances",
+                price: 49.99,
+                image: "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6350/6350920_sd.jpg",
+                description: "Brew your favorite coffee with ease using this automatic coffee maker.",
+                rating: 4.4,
+                stock: 60,
+            },
+            {
+                id: 6,
+                name: "LED Monitor",
+                category: "Electronics",
+                price: 199.99,
+                image: "https://www.bhphotovideo.com/images/images2500x2500/nec_ea234wmi_bk_23_led_backlit_980015.jpg",
+                description: "Full HD LED monitor with adjustable stand.",
+                rating: 4.5,
+                stock: 40,
+            },
+        ];
+
+        let container = document.querySelector("#container");
+
+        ecommerceData.forEach((data) => {
+            // Create card div
+            let cards = document.createElement("div");
+            cards.setAttribute("id", "cards");
+
+            // Create image
+            let image = document.createElement("img");
+            image.setAttribute("id", "img");
+            image.src = data.image;
+
+            // Create name
+            let name = document.createElement("h2");
+            name.innerText = `Name : ${data.name}`;
+
+            // Create category
+            let category = document.createElement("h3");
+            category.innerText = `Category : ${data.category}`;
+
+            // Create price
+            let price = document.createElement("h3");
+            price.innerText = `Price : $${data.price.toFixed(2)}`;
+
+            // Create description
+            let description = document.createElement("h4");
+            description.innerText = `Description : ${data.description}`;
+
+            // Create rating
+            let rating = document.createElement("p");
+            rating.innerText = `Rating : ${data.rating}`;
+
+            // Create stock
+            let stock = document.createElement("p");
+            stock.innerText = `Stock : ${data.stock}`;
+
+            // Create button
+            let button = document.createElement("button");
+            button.setAttribute("id", "button");
+            button.innerText = "Add To Cart";
+            
+            // Add click event listener to button
+            button.addEventListener("click", function() {
+                addToCart(data); // Pass the current product data to the addToCart function
+            });
+
+            // Append elements to card
+            cards.append(image, name, category, price, description, rating, stock, button);
+            container.appendChild(cards);
+        });
+
+        function addToCart(data) {
+            // Get existing cart items from localStorage or initialize an empty array
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Add the selected product to the cart
+            cartItems.push(data);
+            
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+
+            alert(`${data.name} added to cart!`);
+        }
+    </script>
+</body>
+</html>
