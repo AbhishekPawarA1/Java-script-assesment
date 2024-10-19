@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        #form {
+            width: 230px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 20px;
+background: #e0e0e0;
+box-shadow: inset 5px 5px 10px #868686,
+            inset -5px -5px 10px #ffffff;
+        }
+        h2 {
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            height: 27px;
+            border-radius: 5px;
+            border: none;
+        }
+        button {
+            width: 100%;
+            padding: 7px;
+            font-size: 15px;
+            font-weight: 600;
+            background-color: coral;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+        button:hover {
+            background-color: rgb(251, 112, 62);
+            
+        }
+        h3 {
+            text-align: center;
+        }
+    
+    </style>
+</head>
+<body>
+    <h2>login</h2>
+    <form id="form">
+        <label for="">Name</label>
+        <br>
+        <input id="name" type="text" placeholder="Enter Name" required/>
+        <br>
+        <label for="">Email</label>
+        <br>
+        <input id="email" type="email" placeholder="Enter Email" required>
+        <br>
+        <label for="">Password</label>
+        <input id="password" type="password" placeholder="Enter Password" required>
+        <button>Submit</button>
+        <h3 id="result"></h3>
+    </form>
+</body>
+</html>
+
+<script>
+    document.querySelector("button").addEventListener("click", catchdata);
+    result = document.querySelector("#result");
+    result.innerText = "4 Digit PIN";
+
+    function catchdata(event) {
+        event.preventDefault();
+
+        // Get the form and its inputs
+        let form = document.querySelector("form");
+        let name = document.querySelector("#name").value;
+        let email = document.querySelector("#email").value;
+        let password = document.querySelector("#password").value;
+
+        // Retrieve existing users from localStorage or initialize an empty array
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+
+        // Check if the user with this name already exists
+        let existingUser = users.find(user => user.name === name);
+
+        // If the user exists, check the password
+        if (existingUser) {
+            // Password check for the existing user
+            if (existingUser.password === password) {
+                result.innerText = "Password is correct!🥳";
+                console.log("Password is Correct");
+            } else {
+                result.innerText = "Password is incorrect!😭";
+                console.log("Password is incorrect");
+            }
+        } else {
+            // If the user does not exist, create a new user
+            let newUser = { name: name, email: email, password: password };
+            users.push(newUser);
+            localStorage.setItem("users", JSON.stringify(users));
+            result.innerText = "User created successfully! 🎉";
+            console.log("New User Created");
+        }
+
+        // Reset the form fields after submission
+        form.reset();
+    }
+</script>
+
+
