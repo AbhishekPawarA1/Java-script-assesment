@@ -1,0 +1,7 @@
+.pics {
+            width: 100%;
+            display: none; /* Hide all images initially */
+        }
+.active {
+    display: block; /* Show the active image */
+}
