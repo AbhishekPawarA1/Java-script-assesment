@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo APP</title>
+    <style>
+        body {
+            font-family:Georgia, 'Times New Roman', Times, serif;
+            background-image: url("https://wallpaperset.com/w/full/b/f/9/7707.jpg");
+        }
+        #nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            /* From https://css.glass */
+background: rgba(255, 255, 255, 0.11);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.1px);
+-webkit-backdrop-filter: blur(3.1px);
+border: 1px solid rgba(255, 255, 255, 0.56);
+        }
+        #form {
+       
+            width: 270px;
+            padding: 10px;
+            /* From https://css.glass */
+background: rgba(255, 255, 255, 0.11);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(2.7px);
+-webkit-backdrop-filter: blur(2.7px);
+border: 1px solid rgba(0, 0, 0, 0.56);
+            
+
+            
+        } 
+        #display {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+        #select {
+            padding: 5px;
+        }
+        #input {
+            padding: 4px;
+        }
+        #button {
+            margin-top: 50px;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            background-color: #3e5a77;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        #box {
+            display: flex;
+            justify-content: space-between;
+        }
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-top: 30px;
+            /* From https://css.glass */
+background: rgba(255, 255, 255, 0.33);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.4px);
+-webkit-backdrop-filter: blur(6.4px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+            
+            
+        }
+        th{
+            border: 1px solid black;
+        }
+        td {
+            border: 1px solid black;
+        }
+        tbody {
+            text-align: center;
+            border: 1px solid black;
+            height: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <h3>Home</h3>
+        <h3>Archieve</h3>
+    </div>
+    <div id="display">
+         <form id="form">
+            <div id="box">
+              <input type="text" id="input" placeholder="Type Here">
+              <select name="" id="select">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+              </div>
+              <button type="submit" id="button">SUBMIT</button>
+         </form>
+         <table>
+            <thead>
+            <tr>
+                <th>Task</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Archieve</th>
+            </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+         </table>
+    </div>
+</body>
+</html>
+
+<script src="./index.js">
+    
+</script>
