@@ -63,16 +63,28 @@ let user = [
 
 let container = document.querySelector("#parent");
 user.forEach((user) => {
-    let card = document.createElement("div");
-    card.setAttribute("id","cards")
-    let name = document.createElement("h2");
-    name.innerText = `name: ${user.name}`;
-    let username = document.createElement("h3");
-    username.innerText = `Username: ${user.username}`;
-    let email = document.createElement("p");
-    email.innerText = `Email: ${user.email}`;
-    let button = document.createElement("button");
-    button.innerText = "Add to Card";
-    card.append(name, username, email, button);
-    container.appendChild(card);
-})
+  let card = document.createElement("div");
+  card.setAttribute("id", "cards");
+  let name = document.createElement("h2");
+  name.innerText = `name: ${user.name}`;
+  let username = document.createElement("h3");
+  username.innerText = `Username: ${user.username}`;
+  let email = document.createElement("p");
+  email.innerText = `Email: ${user.email}`;
+  let button = document.createElement("button");
+  button.setAttribute("id", "button");
+  button.addEventListener("click", function () {
+    addtocart(user);
+  });
+
+  button.innerText = "Add to Card";
+  card.append(name, username, email, button);
+  container.appendChild(card);
+});
+
+function addtocart(data) {
+  let cartitem = JSON.parse(localStorage.getItem("cart")) || [];
+  cartitem.push(data);
+  localStorage.setItem("cart", JSON.stringify(cartitem));
+  alert(`${data.name}= added to cart!`);
+}

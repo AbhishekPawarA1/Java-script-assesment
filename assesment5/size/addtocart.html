@@ -3,11 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add to Cart</title>
+    <title>Cart Items</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+        }
+        #cards{
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 200px;
+        }
+        #nodata {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div id="container">
+    <h1>Cart Items</h1>
+    <h4 id="nodata"></h4>
+    <div id="container"></div>
+
+    <script>
+        // Fetch cart items from localStorage
+        let cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+        // Get the container element
+        let nodata = document.querySelector("#nodata");
         
-    </div>
+        // Check if the cart is empty
+        if (cartItems.length === 0) {
+            nodata.innerHTML = "<h3>Your cart is empty!</h3>";
+        } else {
+            // Loop through each cart item and display it
+            cartItems.forEach((item) => {
+                let container=document.querySelector("#container")
+                let cards = document.createElement("div");
+                cards.setAttribute("id","cards")
+                let name = document.createElement("h2");
+                name.innerText = `name: ${item.name}`;
+                let username = document.createElement("h3");
+                username.innerText = `Username: ${item.username}`;
+                let email = document.createElement("p");
+                email.innerText = `Email: ${item.email}`;
+                let button = document.createElement("button");
+                button.innerText="buy"
+
+                cards.append(name, username, email,button);
+                container.appendChild(cards);
+            });
+        }
+    </script>
 </body>
 </html>
