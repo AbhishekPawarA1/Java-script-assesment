@@ -1,0 +1,59 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Watch</title>
+    <style>
+        body {
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-image: url("https://wallpaperboat.com/wp-content/uploads/2020/10/20/57399/running-08.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            
+        }
+        #parent {
+            width: max-content;
+            margin: auto;
+            margin-top: 5%;
+background: rgba(255, 255, 255, 0.03);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(2.2px);
+-webkit-backdrop-filter: blur(2.2px);
+border: 1px solid rgb(0, 0, 0);
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #ffffff;
+        }
+        button {
+            padding: 12px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 17px;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgb(0, 0, 0);
+            transition: transform  ease-in;
+        }
+        button:hover {
+            background-color: black;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>STOP WATCH 🕙</h1>
+    <div id="parent">
+        <h1 id="timer">00:00:00</h1>
+        <button id="Start">Start</button>
+        <button id="stop">Pause</button>
+        <button id="reset">Reset</button>
+    </div>
+</body>
+</html>

@@ -7,4 +7,6 @@ function showimages() {
   images[index].classList.add("active")
 }
 
-setInterval(showimages,3000)
+setInterval(showimages,2000)
+
+
