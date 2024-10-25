@@ -6,24 +6,24 @@
     <title>Stop Watch</title>
     <style>
         body {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-image: url("https://wallpaperboat.com/wp-content/uploads/2020/10/20/57399/running-08.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed; /* Ensures the image covers the entire background */
-    min-height: 100vh; /* Ensures full viewport height */
-    margin: 0;
-}
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            background-image: url("https://wallpaperboat.com/wp-content/uploads/2020/10/20/57399/running-08.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensures the image covers the entire background */
+            min-height: 100vh; /* Ensures full viewport height */
+            margin: 0;
+        }
         #parent {
             width: max-content;
             margin: auto;
             margin-top: 5%;
-background: rgba(255, 255, 255, 0.03);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(2.2px);
--webkit-backdrop-filter: blur(2.2px);
-border: 1px solid rgb(0, 0, 0);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(2.2px);
+            -webkit-backdrop-filter: blur(2.2px);
+            border: 1px solid rgb(0, 0, 0);
             padding: 20px;
         }
         h1 {
@@ -65,9 +65,9 @@ border: 1px solid rgb(0, 0, 0);
 <script>
     // Define variables to track time
     let hours = 0, minutes = 0, seconds = 0;
-    let timer;  // Variable to hold setInterval reference
-    let isRunning = false;  // Tracks if the timer is running
-    let isPaused = false;  // Tracks if the timer is paused
+    let timer; 
+    let isRunning = false;  
+    let isPaused = false;  
 
     // Function to update the timer display
     function updateDisplay() {
