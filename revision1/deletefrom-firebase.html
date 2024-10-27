@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firebase DB</title>
+    <style>
+        #usercards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 20px;
+        }
+        .card {
+            padding: 10px;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+        .edit-btn, .delete-btn {
+            padding: 5px;
+            cursor: pointer;
+        }
+        .delete-btn {
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="usercards"></div>
+
+    <script>
+        fetchUsers();
+
+        function fetchUsers() {
+            const requestOptions = {
+                method: "GET",
+                redirect: "follow",
+            };
+
+            fetch("https://st-project-43ecc-default-rtdb.firebaseio.com/user.json", requestOptions)
+                .then(res => res.json())
+                .then(data => {
+                    findCards(data);
+                })
+                .catch(error => console.log("Error fetching data:", error));
+        }
+
+        const container = document.querySelector("#usercards");
+
+        function findCards(data) {
+            container.innerHTML = ''; // Clear the container before adding new cards
+
+            if (data) {
+                for (const id in data) {
+                    const element = data[id];
+                    if (element) {
+                        let card = document.createElement("div");
+                        card.className = "card";
+                        card.innerHTML = `
+                            <h2>Name: ${element.name}</h2>
+                            <h3>Email: ${element.email}</h3>
+                            <h3>City: ${element.city}</h3>
+                            <h4>Age: ${element.age}</h4>
+                            <button class="edit-btn" onclick="editCard('${id}')">Edit</button>
+                            <button class="delete-btn" onclick="deleteCard('${id}')">Delete</button>
+                        `;
+                        container.appendChild(card);
+                    }
+                }
+            } else {
+                console.log("No users found in the database.");
+            }
+        }
+
+        function editCard(id) {
+            console.log(`Edit user with id ${id}`);
+            confirm(`Are you sure you want to edit card with id ${id}?`);
+            // Add your edit logic here if needed
+        }
+
+        function deleteCard(id) {
+            console.log(`Delete user with id ${id}`);
+            if (!confirm(`Are you sure you want to delete card with id ${id}?`)) return;
+
+            fetch(`https://st-project-43ecc-default-rtdb.firebaseio.com/user/${id}.json`, {
+                method: "DELETE",
+                redirect: "follow",
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("Network response was not ok");
+                return res.json();
+            })
+            .then(() => {
+                alert(`User with id: ${id} is deleted successfully`);
+                fetchUsers(); // Refresh the user list after deletion
+            })
+            .catch(error => console.log("Error deleting data:", error));
+        }
+    </script>
+</body>
+</html>

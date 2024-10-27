@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+        form {
+            width: 300px;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            margin: auto;
+            margin-top: 30px;
+            padding: 20px;
+            align-items: center;
+        }
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            cursor: pointer;
+            background-color: blueviolet;
+            color: white;
+            font-weight: 700;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Create User</h1>
+    <form action="" id="form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter email" required>
+        <label for="city">City:</label>
+        <input type="text" id="city" placeholder="Enter city" required>
+        <label for="age">Age:</label>
+        <input type="number" id="age" placeholder="Enter age" required>
+        <button type="submit">Submit</button>
+    </form>
+    
+    <script>
+        let form = document.querySelector("#form");
+        form.addEventListener("submit", createuser);
+
+        function createuser(event) {
+            event.preventDefault();
+
+            let username = document.querySelector("#name").value;
+            let useremail = document.querySelector("#email").value;
+            let usercity = document.querySelector("#city").value;
+            let userage = document.querySelector("#age").value;
+            const userid = Math.floor(Math.random() * 10000) + 1;
+
+            const userdata = {
+                name: username,
+                email: useremail,
+                city: usercity,
+                age: userage
+            };
+
+            const requestOptions = {
+                method: "PUT",
+                body: JSON.stringify(userdata),
+                redirect: "follow"
+            };
+
+            fetch(`https://st-project-43ecc-default-rtdb.firebaseio.com/user/${userid}.json`, requestOptions)
+                .then(response => response.json())
+                .then(result => {
+                    alert(`User created successfully with ID: ${userid}`);
+                    window.location.href = "deletefrom-firebase.html";
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("User creation failed. Please try again.");
+                });
+        }
+    </script>
+</body>
+</html>
