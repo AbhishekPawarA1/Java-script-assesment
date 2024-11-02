@@ -1,0 +1,456 @@
+{
+  "products": [
+    {
+      "product_id": "P001",
+      "name": "Men's Casual Shirt",
+      "description": "Comfortable and stylish casual shirt for men.",
+      "category": "Clothing",
+      "price": 1299,
+      "stock": 50,
+      "image_url": "https://example.com/images/products/casual-shirt.jpg"
+    },
+    {
+      "product_id": "P002",
+      "name": "Wireless Headphones",
+      "description": "High-quality sound with noise-canceling feature.",
+      "category": "Electronics",
+      "price": 2999,
+      "stock": 30,
+      "image_url": "https://example.com/images/products/headphones.jpg"
+    },
+    {
+      "product_id": "P003",
+      "name": "Ceramic Coffee Mug",
+      "description": "Beautiful ceramic mug with a 350ml capacity.",
+      "category": "Home & Kitchen",
+      "price": 299,
+      "stock": 100,
+      "image_url": "https://example.com/images/products/coffee-mug.jpg"
+    },
+    {
+      "product_id": "P004",
+      "name": "Running Shoes",
+      "description": "Lightweight and comfortable running shoes.",
+      "category": "Footwear",
+      "price": 1999,
+      "stock": 20,
+      "image_url": "https://example.com/images/products/running-shoes.jpg"
+    },
+    {
+      "product_id": "P005",
+      "name": "Smartwatch",
+      "description": "Feature-packed smartwatch with fitness tracking.",
+      "category": "Electronics",
+      "price": 4999,
+      "stock": 15,
+      "image_url": "https://example.com/images/products/smartwatch.jpg"
+    },
+    {
+      "product_id": "P006",
+      "name": "Blender",
+      "description": "High-speed blender for smoothies and shakes.",
+      "category": "Home & Kitchen",
+      "price": 1499,
+      "stock": 40,
+      "image_url": "https://example.com/images/products/blender.jpg"
+    },
+    {
+      "product_id": "P007",
+      "name": "Men's Formal Shoes",
+      "description": "Elegant leather shoes for formal occasions.",
+      "category": "Footwear",
+      "price": 2599,
+      "stock": 25,
+      "image_url": "https://example.com/images/products/formal-shoes.jpg"
+    },
+    {
+      "product_id": "P008",
+      "name": "4K Ultra HD TV",
+      "description": "55-inch 4K Ultra HD smart TV with HDR support.",
+      "category": "Electronics",
+      "price": 29999,
+      "stock": 10,
+      "image_url": "https://example.com/images/products/4k-tv.jpg"
+    },
+    {
+      "product_id": "P009",
+      "name": "Electric Kettle",
+      "description": "Fast-boiling electric kettle with a 1.7L capacity.",
+      "category": "Home & Kitchen",
+      "price": 899,
+      "stock": 60,
+      "image_url": "https://example.com/images/products/electric-kettle.jpg"
+    },
+    {
+      "product_id": "P010",
+      "name": "Yoga Mat",
+      "description": "Non-slip yoga mat, perfect for home workouts.",
+      "category": "Sports & Outdoors",
+      "price": 799,
+      "stock": 80,
+      "image_url": "https://example.com/images/products/yoga-mat.jpg"
+    },
+    {
+      "product_id": "P011",
+      "name": "Digital Camera",
+      "description": "High-resolution camera with Wi-Fi and 4K video.",
+      "category": "Electronics",
+      "price": 24999,
+      "stock": 12,
+      "image_url": "https://example.com/images/products/digital-camera.jpg"
+    },
+    {
+      "product_id": "P012",
+      "name": "Gaming Console",
+      "description": "Next-gen gaming console with immersive graphics.",
+      "category": "Electronics",
+      "price": 49999,
+      "stock": 5,
+      "image_url": "https://example.com/images/products/gaming-console.jpg"
+    },
+    {
+      "product_id": "P013",
+      "name": "Sofa Set",
+      "description": "Stylish and comfortable three-seater sofa set.",
+      "category": "Furniture",
+      "price": 15999,
+      "stock": 8,
+      "image_url": "https://example.com/images/products/sofa-set.jpg"
+    },
+    {
+      "product_id": "P014",
+      "name": "Microwave Oven",
+      "description": "900W microwave oven with grill function.",
+      "category": "Home Appliances",
+      "price": 6999,
+      "stock": 18,
+      "image_url": "https://example.com/images/products/microwave-oven.jpg"
+    },
+    {
+      "product_id": "P015",
+      "name": "Electric Drill",
+      "description": "Cordless drill with multiple speed settings.",
+      "category": "Tools",
+      "price": 1599,
+      "stock": 30,
+      "image_url": "https://example.com/images/products/electric-drill.jpg"
+    },
+    {
+      "product_id": "P016",
+      "name": "Graphic T-Shirt",
+      "description": "Trendy graphic t-shirt in various colors.",
+      "category": "Clothing",
+      "price": 499,
+      "stock": 100,
+      "image_url": "https://example.com/images/products/graphic-tshirt.jpg"
+    },
+    {
+      "product_id": "P017",
+      "name": "Water Purifier",
+      "description": "Advanced water purifier with UV and RO features.",
+      "category": "Home Appliances",
+      "price": 8999,
+      "stock": 25,
+      "image_url": "https://example.com/images/products/water-purifier.jpg"
+    },
+    {
+      "product_id": "P018",
+      "name": "Smartphone",
+      "description": "Latest smartphone with 5G support and AMOLED display.",
+      "category": "Electronics",
+      "price": 35999,
+      "stock": 20,
+      "image_url": "https://example.com/images/products/smartphone.jpg"
+    },
+    {
+      "product_id": "P019",
+      "name": "Office Chair",
+      "description": "Ergonomic office chair with lumbar support.",
+      "category": "Furniture",
+      "price": 6999,
+      "stock": 15,
+      "image_url": "https://example.com/images/products/office-chair.jpg"
+    },
+    {
+      "product_id": "P020",
+      "name": "Electric Toothbrush",
+      "description": "Rechargeable electric toothbrush with multiple modes.",
+      "category": "Personal Care",
+      "price": 1199,
+      "stock": 40,
+      "image_url": "https://example.com/images/products/electric-toothbrush.jpg"
+    },
+    {
+      "product_id": "P021",
+      "name": "LED Desk Lamp",
+      "description": "Adjustable LED desk lamp with touch controls.",
+      "category": "Home & Kitchen",
+      "price": 899,
+      "stock": 30,
+      "image_url": "https://example.com/images/products/desk-lamp.jpg"
+    },
+    {
+      "product_id": "P022",
+      "name": "Treadmill",
+      "description": "Folding treadmill with multiple speed settings.",
+      "category": "Sports & Outdoors",
+      "price": 19999,
+      "stock": 8,
+      "image_url": "https://example.com/images/products/treadmill.jpg"
+    },
+    {
+      "product_id": "P023",
+      "name": "VR Headset",
+      "description": "Immersive virtual reality headset with motion tracking.",
+      "category": "Electronics",
+      "price": 29999,
+      "stock": 6,
+      "image_url": "https://example.com/images/products/vr-headset.jpg"
+    },
+    {
+      "product_id": "P024",
+      "name": "Wireless Keyboard",
+      "description": "Compact wireless keyboard with Bluetooth connectivity.",
+      "category": "Electronics",
+      "price": 1499,
+      "stock": 50,
+      "image_url": "https://example.com/images/products/wireless-keyboard.jpg"
+    },
+    {
+      "product_id": "P025",
+      "name": "Leather Wallet",
+      "description": "Stylish leather wallet with multiple compartments.",
+      "category": "Accessories",
+      "price": 899,
+      "stock": 75,
+      "image_url": "https://example.com/images/products/leather-wallet.jpg"
+    },
+    {
+      "product_id": "P026",
+      "name": "Bluetooth Speaker",
+      "description": "Portable Bluetooth speaker with deep bass.",
+      "category": "Electronics",
+      "price": 1499,
+      "stock": 60,
+      "image_url": "https://example.com/images/products/bluetooth-speaker.jpg"
+    },
+    {
+      "product_id": "P027",
+      "name": "Yoga Pants",
+      "description": "Stretchable yoga pants for comfortable workouts.",
+      "category": "Clothing",
+      "price": 799,
+      "stock": 75,
+      "image_url": "https://example.com/images/products/yoga-pants.jpg"
+    },
+    {
+      "product_id": "P028",
+      "name": "Espresso Machine",
+      "description": "Professional espresso machine for home use.",
+      "category": "Home Appliances",
+      "price": 8999,
+      "stock": 20,
+      "image_url": "https://example.com/images/products/espresso-machine.jpg"
+    },
+    {
+      "product_id": "P029",
+      "name": "Electric Toothbrush",
+      "description": "Rechargeable toothbrush with multiple modes.",
+      "category": "Personal Care",
+      "price": 1299,
+      "stock": 50,
+      "image_url": "https://example.com/images/products/electric-toothbrush.jpg"
+    },
+    {
+      "product_id": "P030",
+      "name": "Leather Jacket",
+      "description": "Stylish leather jacket for men.",
+      "category": "Clothing",
+      "price": 4999,
+      "stock": 18,
+      "image_url": "https://example.com/images/products/leather-jacket.jpg"
+    },
+    {
+      "product_id": "P031",
+      "name": "Smart Light Bulb",
+      "description": "Wi-Fi-enabled light bulb with color settings.",
+      "category": "Home & Kitchen",
+      "price": 499,
+      "stock": 100,
+      "image_url": "https://example.com/images/products/smart-light-bulb.jpg"
+    },
+    {
+      "product_id": "P032",
+      "name": "Gaming Keyboard",
+      "description": "RGB backlit gaming keyboard.",
+      "category": "Electronics",
+      "price": 1999,
+      "stock": 25,
+      "image_url": "https://example.com/images/products/gaming-keyboard.jpg"
+    },
+    {
+      "product_id": "P033",
+      "name": "Sunglasses",
+      "description": "Polarized sunglasses with UV protection.",
+      "category": "Accessories",
+      "price": 999,
+      "stock": 60,
+      "image_url": "https://example.com/images/products/sunglasses.jpg"
+    },
+    {
+      "product_id": "P034",
+      "name": "Protein Shaker Bottle",
+      "description": "BPA-free shaker bottle with a mixing ball.",
+      "category": "Sports & Outdoors",
+      "price": 299,
+      "stock": 120,
+      "image_url": "https://example.com/images/products/shaker-bottle.jpg"
+    },
+    {
+      "product_id": "P035",
+      "name": "Electric Griddle",
+      "description": "Non-stick electric griddle for pancakes and more.",
+      "category": "Home Appliances",
+      "price": 2499,
+      "stock": 30,
+      "image_url": "https://example.com/images/products/electric-griddle.jpg"
+    },
+    {
+      "product_id": "P036",
+      "name": "Waterproof Hiking Backpack",
+      "description": "Durable hiking backpack with multiple compartments.",
+      "category": "Sports & Outdoors",
+      "price": 2499,
+      "stock": 35,
+      "image_url": "https://example.com/images/products/hiking-backpack.jpg"
+    },
+    {
+      "product_id": "P037",
+      "name": "Instant Pot",
+      "description": "Multi-function electric pressure cooker.",
+      "category": "Home Appliances",
+      "price": 5999,
+      "stock": 22,
+      "image_url": "https://example.com/images/products/instant-pot.jpg"
+    },
+    {
+      "product_id": "P038",
+      "name": "Men's Analog Watch",
+      "description": "Classic analog watch with a leather strap.",
+      "category": "Accessories",
+      "price": 2999,
+      "stock": 45,
+      "image_url": "https://example.com/images/products/analog-watch.jpg"
+    },
+    {
+      "product_id": "P039",
+      "name": "Tennis Racket",
+      "description": "Lightweight tennis racket for all skill levels.",
+      "category": "Sports & Outdoors",
+      "price": 1599,
+      "stock": 40,
+      "image_url": "https://example.com/images/products/tennis-racket.jpg"
+    },
+    {
+      "product_id": "P040",
+      "name": "Fitness Tracker",
+      "description": "Tracks steps, heart rate, and calories burned.",
+      "category": "Electronics",
+      "price": 2999,
+      "stock": 27,
+      "image_url": "https://example.com/images/products/fitness-tracker.jpg"
+    },
+    {
+      "product_id": "P041",
+      "name": "Adjustable Dumbbells",
+      "description": "Set of two adjustable dumbbells with weights.",
+      "category": "Sports & Outdoors",
+      "price": 3499,
+      "stock": 15,
+      "image_url": "https://example.com/images/products/dumbbells.jpg"
+    },
+    {
+      "product_id": "P042",
+      "name": "Hand Blender",
+      "description": "Multi-speed hand blender with attachments.",
+      "category": "Home Appliances",
+      "price": 1299,
+      "stock": 55,
+      "image_url": "https://example.com/images/products/hand-blender.jpg"
+    },
+    {
+      "product_id": "P043",
+      "name": "Men's Hoodie",
+      "description": "Warm and comfortable hoodie for men.",
+      "category": "Clothing",
+      "price": 1799,
+      "stock": 80,
+      "image_url": "https://example.com/images/products/mens-hoodie.jpg"
+    },
+    {
+      "product_id": "P044",
+      "name": "Wireless Mouse",
+      "description": "Ergonomic wireless mouse with USB receiver.",
+      "category": "Electronics",
+      "price": 499,
+      "stock": 90,
+      "image_url": "https://example.com/images/products/wireless-mouse.jpg"
+    },
+    {
+      "product_id": "P045",
+      "name": "Face Cleanser",
+      "description": "Gentle facial cleanser suitable for all skin types.",
+      "category": "Personal Care",
+      "price": 399,
+      "stock": 70,
+      "image_url": "https://example.com/images/products/face-cleanser.jpg"
+    },
+    {
+      "product_id": "P046",
+      "name": "Electric Scooter",
+      "description": "Foldable electric scooter with long battery life.",
+      "category": "Automotive",
+      "price": 24999,
+      "stock": 10,
+      "image_url": "https://example.com/images/products/electric-scooter.jpg"
+    },
+    {
+      "product_id": "P047",
+      "name": "Wooden Chess Set",
+      "description": "Premium quality wooden chess set.",
+      "category": "Toys & Games",
+      "price": 1099,
+      "stock": 45,
+      "image_url": "https://example.com/images/products/chess-set.jpg"
+    },
+    {
+      "product_id": "P048",
+      "name": "Bamboo Cutting Board",
+      "description": "Eco-friendly cutting board made of bamboo.",
+      "category": "Home & Kitchen",
+      "price": 499,
+      "stock": 95,
+      "image_url": "https://example.com/images/products/cutting-board.jpg"
+    },
+    {
+      "product_id": "P049",
+      "name": "Wireless Charger",
+      "description": "Fast wireless charger compatible with multiple devices.",
+      "category": "Electronics",
+      "price": 1499,
+      "stock": 35,
+      "image_url": "https://example.com/images/products/wireless-charger.jpg"
+    },
+    {
+      "product_id": "P050",
+      "name": "Portable Power Bank",
+      "description": "10,000mAh power bank with dual USB ports.",
+      "category": "Electronics",
+      "price": 1299,
+      "stock": 50,
+      "image_url": "https://example.com/images/products/power-bank.jpg"
+    }
+  ]
+}
+
+

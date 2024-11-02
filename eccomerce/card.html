@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a1a65dd321.js" crossorigin="anonymous"></script>
+    <title>Shopping Cart</title>
+    <style>
+        #cart-container {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+        #cart-items {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .cart-card {
+            display: flex;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+        .cart-card img {
+            width: 100px;
+            height: 100px;
+        }
+        .cart-details {
+            flex: 1;
+            margin-left: 20px;
+        }
+        .cart-actions {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        #total-price {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="cart-container">
+        <h1>Your Cart</h1>
+        <div id="cart-items">
+        </div>
+        <h2 id="total-price">Total Price: $0.00</h2>
+    </div>
+
+    <script>
+function displayCartItems() {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    let cartContainer = document.getElementById("cart-items");
+    let totalPriceElement = document.getElementById("total-price");
+
+    cartContainer.innerHTML = "";
+
+    let totalPrice = 0;
+
+    if (cartItems.length === 0) {
+        cartContainer.innerHTML = "<h2>Your cart is empty.</h2>";
+    } else {
+        cartItems.forEach((item, index) => {
+            let cartCard = document.createElement("div");
+            cartCard.className = "cart-card";
+
+            let img = document.createElement("img");
+            img.src = item.images[0];
+
+            let details = document.createElement("div");
+            details.className = "cart-details";
+            details.innerHTML = `
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+                <p>Price: $${item.price}</p>
+                <p>Quantity: 1</p>
+            `;
+
+            let actions = document.createElement("div");
+            actions.className = "cart-actions";
+
+            let removeButton = document.createElement("button");
+            removeButton.innerText = "Remove";
+            removeButton.addEventListener("click", function () {
+                removeFromCart(index);
+            });
+
+            actions.appendChild(removeButton);
+            cartCard.append(img, details, actions);
+            cartContainer.appendChild(cartCard);
+
+            totalPrice += item.price;
+        });
+
+        totalPriceElement.innerText = `Total Price: $${totalPrice.toFixed(2)}`;
+    }
+}
+
+function removeFromCart(index) {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    cartItems.splice(index, 1);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    displayCartItems();
+}
+
+window.onload = function() {
+    displayCartItems();
+};
+    </script>
+</body>
+</html>

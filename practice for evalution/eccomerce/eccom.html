@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eccomerce website</title>
+    <style>
+        #parent {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 20px;
+            padding: 10px;
+        }
+        #card {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 8px;
+        }
+        #add-to-card-btn {
+            padding: 8px;
+            cursor: pointer;
+        }
+        
+    </style>
+</head>
+<body>
+    <label for="sorting">Sort By</label>
+    <select  id="sorting">
+        <option value="Default">Default</option>
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+    </select>
+    <div id="parent">
+
+    </div>
+</body>
+</html>
+
+<script src="./eccom.js"></script>

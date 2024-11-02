@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data From API</title>
+    <style>
+
+        /* body {
+            background-image: url("https://wallpapercave.com/wp/wp6438851.jpg");
+            background-size: cover;
+        } */
+        #form {
+            width: 200px;
+            margin: auto;
+            /* From https://css.glass */
+background: rgba(255, 255, 255, 0.07);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(2.3px);
+-webkit-backdrop-filter: blur(2.3px);
+border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 20px;
+        }
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            height: 27px;
+            border: none;
+            padding: 5px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+        }
+        button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            margin-top: 10px;
+            background-color: rgb(0, 115, 209);
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: rgb(0, 109, 198);
+        }
+        h4 {
+            text-align: center;
+            
+        }
+        #forget{
+            display: block;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Login</h1>
+    <form id="form">
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Username" required>
+        <br><br>
+        <label for="Password">Password</label>
+        <input type="password" id="password" placeholder="Password" required>
+        <br>
+        <button type="submit">Submit</button>
+        <div id="message"></div>
+        <h5 id="forget"><a href="">Forget Password</a></h5>
+    </form>
+</body>
+
+<script>
+document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    findData();
+});
+
+function findData() {
+    const requestOptions = {
+        method: "GET",
+        redirect: "follow"
+    };
+    const URL = "https://user-data-1cf8b-default-rtdb.firebaseio.com/users.json";
+    fetch(URL, requestOptions)
+        .then(res => res.json())
+        .then(data => displayData(data))
+        .catch(error => console.log("Error fetching data:", error));
+}
+
+function displayData(data) {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    const messageContainer = document.getElementById('message');
+    messageContainer.innerHTML = "";  // Clear previous message
+
+    let message = "";
+
+    // Check if the user exists in the data
+    if (data[username]) {
+        // Check password match
+        if (data[username].password === password) {
+            message = "Login Successfully";
+        } else {
+            message = "Password is incorrect";
+        }
+    } else {
+        message = "No User Found";
+    }
+
+    // Display message
+    const h4 = document.createElement("h4");
+    h4.textContent = message;
+    messageContainer.appendChild(h4);
+}
+</script>
+</html>

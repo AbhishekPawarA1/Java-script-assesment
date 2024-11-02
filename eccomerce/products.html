@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/a1a65dd321.js" crossorigin="anonymous"></script>
+    <title>Products</title>
+    <style>
+        #body {
+           background-image: url("https://th.bing.com/th/id/R.df29dab51891089e01dfcf4f676d21cd?rik=SDb3FwMFiTiG1A&riu=http%3a%2f%2fcdn.wallpapersafari.com%2f22%2f73%2fxF4zkp.jpg&ehk=79bTn7SavwjxQdLlsH7fRJrjkDcopjE%2fWveJfwPv7VI%3d&risl=&pid=ImgRaw&r=0");
+        }
+        #container {
+          display: grid;
+          grid-template-columns: repeat(4,1fr);
+          gap: 20px;
+        }
+        @media (max-width: 800px){
+          #container {
+          display: grid;
+          grid-template-columns: repeat(3,1fr);
+          gap: 20px;
+        }
+        } 
+        @media (max-width: 550px){
+          #container {
+          display: grid;
+          grid-template-columns: repeat(2,1fr);
+          gap: 20px;
+        }
+        } 
+        @media (max-width: 400px){
+          #container {
+          display: grid;
+          grid-template-columns: repeat(1,1fr);
+          gap: 20px;
+        }
+        } 
+        #cards {
+            /* From https://css.glass */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            background-color: aliceblue;
+            text-align: center;
+box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        }
+        #buttons {
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        #buttons:hover {
+            background-color: #fadadd;
+            
+        }
+        #top {
+            display: flex;
+            justify-content: space-between;
+        }
+        .fa-opencart {
+            font-size: 30px;
+            color: red;
+            margin-right: 60px;
+            transition: transform 0.7s ease-in-out;
+        }
+        .fa-opencart:hover {
+            transform: scale(1.1);
+            transform: translateX(50px);
+        }
+        
+    </style>
+</head>
+<body id="body">
+    <div id="top">
+      <h1>Products</h1>
+      <h1><a href="./card.html"><i class="fa-brands fa-opencart"></i></a></h1>
+    </div>
+    
+    <div id="container">
+
+    </div>
+</body>
+</html>
+<script >
+    const products=[
+  {
+    id: 1,
+    title: "Wireless Bluetooth Headphones",
+    description:
+      "High-quality wireless headphones with noise cancellation and long battery life.",
+    price: 49.99,
+    strikePrice: 79.99,
+    quantity: 120,
+    category: "Electronics",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+   
+    ],
+  },
+  {
+    id: 2,
+    title: "Smartphone with 128GB Storage",
+    description: "A smartphone with 128GB storage, 8GB RAM, and a 48MP camera.",
+    price: 599.99,
+    strikePrice: 699.99,
+    quantity: 85,
+    category: "Electronics",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+  {
+    id: 3,
+    title: "4K Ultra HD Smart TV",
+    description: "55-inch 4K Ultra HD Smart TV with built-in streaming apps.",
+    price: 449.99,
+    strikePrice: 549.99,
+    quantity: 30,
+    category: "Electronics",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+  {
+    id: 4,
+    title: "Gaming Laptop",
+    description:
+      "High-performance gaming laptop with Intel i7, 16GB RAM, and RTX 3060.",
+    price: 1199.99,
+    strikePrice: 1399.99,
+    quantity: 50,
+    category: "Electronics",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+  {
+    id: 5,
+    title: "Fitness Smartwatch",
+    description: "Smartwatch with heart rate monitor, GPS, and step tracker.",
+    price: 129.99,
+    strikePrice: 199.99,
+    quantity: 150,
+    category: "Wearables",
+    images: [
+      "https://via.placeholder.com/150",
+      "https://via.placeholder.com/150",
+    ],
+  },
+];
+
+
+let container = document.querySelector("#container");
+
+products.forEach((product) => {
+    let card = document.createElement("div");
+    card.setAttribute("id", "cards");
+
+    let image = document.createElement("img");
+    image.src = product.images[0];
+
+    let title = document.createElement("h2");
+    title.innerText = `Title: ${product.title}`;
+
+    let description = document.createElement("h3");
+    description.innerText = `Description: ${product.description}`;
+
+    let price = document.createElement("h3");
+    price.innerText = `Price: $${product.price}`;
+
+    let strikePrice = document.createElement("h3");
+    strikePrice.innerText = `Strike Price: $${product.strikePrice}`;
+
+    let quantity = document.createElement("h3");
+    quantity.innerText = `Quantity: ${product.quantity}`;
+
+    let category = document.createElement("h3");
+    category.innerText = `Category: ${product.category}`;
+
+    let button = document.createElement("button");
+    button.setAttribute("id", "buttons");
+    button.innerText = "Add to Cart";
+
+    button.addEventListener("click", function() {
+        addToCart(product);
+    });
+
+    card.append(image, title, description, price, strikePrice, quantity, category, button);
+    container.appendChild(card);
+});
+
+function addToCart(product) {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+    cartItems.push(product);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    alert(`${product.title} has been added to your cart.`);
+}
+
+
+</script>

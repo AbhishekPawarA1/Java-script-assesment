@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data From API</title>
+    <style>
+        #form {
+            width: 200px;
+            margin: auto;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+            padding: 20px;
+        }
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            height: 27px;
+            border: none;
+            padding: 5px;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+        }
+        button {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 5px;
+            margin-top: 10px;
+            background-color: rgb(0, 115, 209);
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: rgb(0, 109, 198);
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Sign up</h1>
+    <form id="form" >
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Username" required>
+        <br>
+        <br>
+        <label for="Password">Password</label>
+        <input type="password" id="password" placeholder="Password" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+<script>
+    document.getElementById('form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    const userData = { username: username, password: password };
+
+    const url = `https://user-data-1cf8b-default-rtdb.firebaseio.com/users/${username}.json`;
+
+    const requestOptions = {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userData),
+        redirect: 'follow'
+    };
+
+    fetch(url, requestOptions)
+        .then(response => {
+            if (!response.ok) throw new Error('Network response was not ok');
+            return response.json();
+        })
+        .then(data => {
+            alert('Data saved successfully!');
+            window.open("./login.html","_black")
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to save data.');
+        });
+
+        form.reset()
+        
+
+
+});
+
+
+</script>
