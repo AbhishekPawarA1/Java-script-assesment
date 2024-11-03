@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      
+    </style>
+    <title>Document</title>
+    <!-- Tailwind css CDN  -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind css CDN  -->
+    <script
+      src="https://kit.fontawesome.com/49b1f13654.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body class="bg-sky-900">
+    <nav
+      class="py-2 flex justify-center items-center border rounded-3xl mt-1 mx-5"
+    >
+      <form
+        action=""
+        id="searchMovie"
+        class="flex justify-center items-center gap-2 text-white py-2 w-1/2"
+      >
+        <label class="line-clamp-1" for="searchField">Search For Movie</label>
+        <div class="flex items-center border rounded-lg w-[70%] bg-transparent">
+          <input
+            class="w-full bg-transparent px-4 py-1 focus:outline-none focus:bg-transparent"
+            id="searchField"
+            type="text"
+            placeholder="Type movie name..."
+          />
+          <button type="submit">
+            <span class="px-3 py-1 cursor-pointer border-s">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
+          </button>
+        </div>
+      </form>
+    </nav>
+
+    <div id="movieContainer" class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-4 px-5"></div>
+
+    <div id="paginationContainer" class="flex justify-center items-center gap-5 text-white text-2xl py-10"></div>
+  </body>
+  <script src="./index.js"></script>
+</html>
