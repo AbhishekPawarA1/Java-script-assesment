@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch data</title>
+    <style>
+        #container {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            padding: 30px;
+            gap: 20px;
+        }
+        #card {
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+</body>
+</html>
+
+<script >
+finddata()    
+function finddata() {
+  const requestOption = {
+    method: "GET",
+    request: "follow",
+  };
+
+  let URL = "https://jsonplaceholder.typicode.com/users";
+  fetch(URL, requestOption)
+    .then((res) => res.json())
+    .then((data) => displaydata(data))
+    .catch((error) => console.log("error in fetching data", error));
+  let container = document.querySelector("#container");
+
+  function displaydata(data) {
+    data.forEach((element) => {
+      let card = document.createElement("div");
+      card.setAttribute("id", "card");
+      card.innerHTML = `
+                        <h2>Name: ${element.name}</h2>
+                        <h3>Username: ${element.username}</h3>
+                        <h3>Email: ${element.email}</h3>
+                        <h3>Address: ${element.address.street} Zipcode: ${element.address.zipcode}</h3>
+                        <h3>Phone no: ${element.phone}</h3>
+                        <h3>Company Name: ${element.company.name}</h3>
+                        <h3>Website: ${element.website}</h3>
+                    
+                    `;
+      container.appendChild(card);
+    });
+  }
+}
+       
+</script>
