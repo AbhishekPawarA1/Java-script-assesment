@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cars</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+function Car(make, model, year, type, isAvailable = true) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+    this.type = type;
+    this.isAvailable = isAvailable;
+}
+
+function Customer(name) {
+    this.name = name;
+    this.rentedCars = [];
+}
+
+Customer.prototype.rentCar = function(car) {
+    if (car.isAvailable) {
+        car.isAvailable = false;
+        this.rentedCars.push(car);
+        console.log(`${this.name} has rented a ${car.make} ${car.model}.`);
+    } else {
+        console.log(`${car.make} ${car.model} is already rented.`);
+    }
+};
+
+Customer.prototype.returnCar = function(car) {
+    setTimeout(() => {
+        car.isAvailable = true;
+        this.rentedCars = this.rentedCars.filter(c => c !== car);
+        console.log(`${this.name} has returned the ${car.make} ${car.model}.`);
+    }, 2000); // Simulates a 2-second delay
+};
+
+// PremiumCustomer inherits from Customer and includes discountRate
+function PremiumCustomer(name, discountRate) {
+    Customer.call(this, name);
+    this.discountRate = discountRate;
+}
+
+PremiumCustomer.prototype = Object.create(Customer.prototype);
+PremiumCustomer.prototype.constructor = PremiumCustomer;
+
+// Rental price calculation function
+function calculateRentalPrice(car, customer) {
+    let baseRate = 50; // Base rental price per day
+    let typeMultiplier = car.type === "SUV" ? 1.5 : 1;
+    let price = baseRate * typeMultiplier;
+    if (customer instanceof PremiumCustomer) {
+        price *= (1 - customer.discountRate);
+    }
+    return price;
+}
+
+// Maintenance function
+function Maintenance(car) {
+    console.log(`The ${car.make} ${car.model} is under maintenance.`);
+    setTimeout(() => {
+        car.isAvailable = true;
+        console.log(`The ${car.make} ${car.model} is now available for rent.`);
+    }, 2000); // 2-second delay for maintenance
+}
+
+// Demonstrating functionality
+let car1 = new Car("Toyota", "Corolla", 2020, "Sedan");
+let car2 = new Car("Ford", "Explorer", 2021, "SUV");
+let customer1 = new Customer("Abhishek");
+let premiumCustomer = new PremiumCustomer("Ankit", 0.1); // 10% discount
+
+customer1.rentCar(car1);
+console.log(`Rental Price: $${calculateRentalPrice(car1, customer1)}`);
+customer1.returnCar(car1);
+
+premiumCustomer.rentCar(car2);
+console.log(`Rental Price with Discount: $${calculateRentalPrice(car2, premiumCustomer)}`);
+Maintenance(car2);
+
+
+</script>
