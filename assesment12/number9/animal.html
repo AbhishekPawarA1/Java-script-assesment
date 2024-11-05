@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+
+
+           // 1 Factory Function 
+function animal(noOFlegs,vegetarian){
+        return {
+        noOFlegs,
+        vegetarian,
+        eat(){
+            return 'eating...'
+        },
+        greet(){
+            return `Hi, I have ${noOFlegs} legs.`
+        }
+    }    
+}
+let a1 = animal(4, true);
+console.log(a1.eat()); // eating...
+console.log(a1.greet()); // Hi, I have 4 legs.
+
+
+
+            // 2 Constructor Function 
+
+function AnimalCF(noOFlegs,vegetarian){
+    this.NoOfLegs=noOFlegs;
+    this.Vegetarian=vegetarian;
+    this.eat=function(){
+        return 'eating...'
+    }
+    this.greet=function(){
+        return `Hi, I have ${noOFlegs} legs.`
+    }
+}
+let animalCF = new AnimalCF(4, true);
+console.log(animalCF.eat()); // eating...
+console.log(animalCF.greet()); // Hi, I have 4 legs.
+            
+
+
+
+            // 3 ES6 Class
+
+
+class AnimalES6{
+    constructor(Nooflegs,vegetarian){
+        this.Nooflegs=Nooflegs;
+        this.vegetarian=vegetarian;
+    }
+    eat(){
+        return 'eating...'
+    }
+    greet(){
+        return `Hi, I have ${this.Nooflegs} legs`
+    }
+}
+let animalES6 = new AnimalES6(4, true);
+console.log(animalES6.eat()); // eating...
+console.log(animalES6.greet()); // Hi, I have 4 legs.
+
+</script>
